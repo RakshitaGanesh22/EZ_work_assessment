@@ -68,6 +68,4 @@ This project implements a responsive form submission feature using React and Mat
 3. Make your changes and commit.
 4. Push to your branch and create a pull request.
 
-## License
-This project is licensed under the MIT License.
 
