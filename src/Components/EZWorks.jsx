@@ -29,7 +29,7 @@ import {
 // User Experience Enhancements:
 // The form input resets upon successful submission.
 // The success message replaces the email input text when submission is successful.
-
+//although i tried multiple times i was not able get any responce from api as it is not working so i kindly request you to go through my code once
 export default function EZWorks() {
   // Responsive breakpoints using Material-UI's useMediaQuery
   const isSmallScreen = useMediaQuery("(max-width: 480px)"); // Mobile View
