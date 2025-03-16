@@ -4,7 +4,7 @@
 This project implements a responsive form submission feature using React and Material-UI. It integrates with an external API to validate and submit email addresses while ensuring a seamless user experience.
 
 ## Features
-- **API Integration**: Sends email data to `http://3.228.97.110:9000/api` using `axios`.
+- **API Integration**: Sends email data to `https://test.ezworks.ai/api` using `axios`.
 - **Form Validation**:
   - Prevents empty submissions.
   - Validates email format before sending.
@@ -18,8 +18,8 @@ This project implements a responsive form submission feature using React and Mat
   - Displays a success message after submission.
 
 ## API Information
-- **API Endpoint**: `http://3.228.97.110:9000/api`
-- **Documentation**: [API Docs](http://3.228.97.110:9000/docs)
+- **API Endpoint**: `(https://test.ezworks.ai/api)`
+- **Documentation**: [API Docs](https://test.ezworks.ai/docs)
 - **Request Type**: `POST`
 - **Required Variable**: `email`
 
