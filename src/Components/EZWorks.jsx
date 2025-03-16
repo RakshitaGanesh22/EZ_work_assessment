@@ -29,7 +29,7 @@ import {
 // User Experience Enhancements:
 // The form input resets upon successful submission.
 // The success message replaces the email input text when submission is successful.
-//although i tried multiple times i was not able get any responce from api as it is not working so i kindly request you to go through my code once
+//alert message will be displayed on successfull submission
 export default function EZWorks() {
   // Responsive breakpoints using Material-UI's useMediaQuery
   const isSmallScreen = useMediaQuery("(max-width: 480px)"); // Mobile View
@@ -60,14 +60,15 @@ export default function EZWorks() {
 
     try {
       // API Call: Sending email to backend server
-      const response = await axios.post("http://3.228.97.110:9000/api", {
+      const response = await axios.post("https://test.ezworks.ai/api", {
         email,
       });
 
       // Success: API returns 200 response
       if (response.status === 200) {
         setSuccessMessage("Form Submitted");
-        setEmail(""); // Reset email field after submission
+        alert("Form Submitted response.status === 200");
+        setEmail("Form Submitted"); // Reset email field after submission
       }
     } catch (err) {
       // Error Handling: If API returns an error
@@ -143,7 +144,7 @@ export default function EZWorks() {
           <Box sx={{ display: "flex", gap: 2 }}>
             <TextField
               placeholder="Email Address"
-              value={successMessage || email}
+              value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
                 setSuccessMessage("");
@@ -223,7 +224,7 @@ export default function EZWorks() {
         <Box sx={{ display: "grid", gap: 2 }}>
           <TextField
             placeholder="Email Address"
-            value={successMessage || email}
+            value={email}
             onChange={(e) => {
               setEmail(e.target.value);
               setSuccessMessage("");
