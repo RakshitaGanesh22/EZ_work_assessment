@@ -29,7 +29,7 @@ import {
 // User Experience Enhancements:
 // The form input resets upon successful submission.
 // The success message replaces the email input text when submission is successful.
-//alert message will be displayed on successfull submission
+
 export default function EZWorks() {
   // Responsive breakpoints using Material-UI's useMediaQuery
   const isSmallScreen = useMediaQuery("(max-width: 480px)"); // Mobile View
@@ -66,15 +66,15 @@ export default function EZWorks() {
 
       // Success: API returns 200 response
       if (response.status === 200) {
-        setSuccessMessage("Form Submitted");
-        alert("Form Submitted response.status === 200");
+        setSuccessMessage("form submitted");
         setEmail("Form Submitted"); // Reset email field after submission
       }
     } catch (err) {
       // Error Handling: If API returns an error
       if (err.response) {
         if (err.response.status === 422) {
-          setError(err.response.data.message || "Invalid email domain"); // Display API response error
+          setError(err.response.data.message || "response code 422");
+          // Display API response error
         } else {
           setError("Something went wrong"); // General error message
         }
@@ -144,13 +144,17 @@ export default function EZWorks() {
           <Box sx={{ display: "flex", gap: 2 }}>
             <TextField
               placeholder="Email Address"
-              value={email}
+              value={email || successMessage}
               onChange={(e) => {
                 setEmail(e.target.value);
                 setSuccessMessage("");
               }}
               error={!!error}
-              helperText={error}
+              helperText={
+                <span style={{ color: error ? "red" : "green" }}>
+                  {error || successMessage}
+                </span>
+              }
             />
             <Button
               onClick={handleSubmit}
@@ -224,13 +228,17 @@ export default function EZWorks() {
         <Box sx={{ display: "grid", gap: 2 }}>
           <TextField
             placeholder="Email Address"
-            value={email}
+            value={email || successMessage}
             onChange={(e) => {
               setEmail(e.target.value);
               setSuccessMessage("");
             }}
             error={!!error}
-            helperText={error}
+            helperText={
+              <span style={{ color: error ? "red" : "green" }}>
+                {error || successMessage}
+              </span>
+            }
           />
           <Box
             sx={{ display: "flex", justifyContent: "center", width: "100%" }}
